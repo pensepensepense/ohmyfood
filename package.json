@@ -1,0 +1,19 @@
+{
+  "name": "projet_savalle",
+  "version": "1.0.0",
+  "description": "projetOC",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pensepensepense/ohmyfood.git"
+  },
+  "author": "Nicolas Savalle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pensepensepense/ohmyfood/issues"
+  },
+  "homepage": "https://github.com/pensepensepense/ohmyfood#readme"
+}
