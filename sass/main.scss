@@ -1,37 +1,45 @@
-* {
-	margin:0;
-    padding:0;
-    box-sizing:border-box;
-     }
-
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
+    /*animation du logo*/
+    $num-lettre: 8;
+    $anim-dur: 3000ms;
+    $anim-delay: calc($anim-dur / $num-lettre);
+
+    /*couleurs du site*/
     $couleur-primaire: #9356DC;
     $couleur-secondaire: #FF79DA;
     $couleur-tertiaire: #99E2D0;
     $fondgris: #EAEAEA;
-    $num-resto: 4;
-    $couleurbtn-1: #FFF;
-    $couleurbtn-2: #F5F;
 
+    /*génération des images de fond des restaurants vignettes articles*/
+    $num-resto: 4;
     $input-url: (1:"./images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg",
     2: "./images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg",
     3: "./images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg",
     4: "./images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
     
-
-
-
-    $num-lettre: 8;
-    $anim-dur: 3000ms;
-    $anim-delay: calc($anim-dur / $num-lettre);
-   
+    * {
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+         }
+  
     body {
         color: #353535;
         font-family: 'Roboto', sans-serif;
+    }
+
+    #loading {
+        z-index:100;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width:100%;
+        height:100%;
+        background: red;
     }
     
     
@@ -41,9 +49,11 @@
        90% {stroke-opacity:0;}
        100%{fill:#000;stroke:#000; stroke-width:0.5;}
        }
+
+
     
     header {display: flex;
-            align-content: center;
+             align-content: center;
              justify-content: center;
              align-items: center;
              flex-direction: column;
@@ -97,6 +107,11 @@
 
                 margin: 12px auto;
         }
+
+        @mixin typotitre {
+        font-family: 'Shrikhand', sans-serif; font-size:140%; font-weight: 400;
+        }
+
 
     #presentation {
         padding:6%;
@@ -152,12 +167,15 @@
             border-radius: 1.5em;
             width:85%;
             height:70px;
-            background:#F6F6F6;
+            background-color:#F6F6F6;
+            transition-property: background-color;
+            transition-duration: 2000ms;
        
         
                     &__numero {
                         font-size:90%;
                         background-color:$couleur-primaire;
+ 
                         text-align: center;
                         box-sizing: content-box;
                         padding:5px;
@@ -166,7 +184,7 @@
                         border-radius: 50%;
                         color: white;
                         margin-left: -30px;
-                        }
+                        } 
                 
                     &__icone {
                         padding: 0 15px;
@@ -175,6 +193,7 @@
                     &__texte {
                         
                     }
+                    &:hover {background-color: #F5EDFF};
         }
     }
 
@@ -196,21 +215,34 @@
         }
 
         a{
-            width:100%;
-            padding:16px;
+            text-decoration-line:none;
         }
 
         .vignette-article {
             overflow:hidden;
             background-color:white;
             border-radius: 20px;
-            margin: 6px 0;
-            width: 100%;
+            margin: 12px auto;
+            width: 90%;
+            opacity:100%;
+            transition-property: opacity;
+            transition-duration: 400ms;
+            &:hover {opacity:0.75;}
+                        }
+
+            .vignette-article__corps{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-content: center;
+                 justify-content: space-between;
+                align-items: center;
             }
             
             .vignette-article__image {
             
             height: 200px;
+            position: relative;
             @for $i from 1 through $num-resto {
                 &--img#{$i} {
                     background: url(map-get($input-url, $i)) no-repeat;
@@ -218,48 +250,72 @@
                     background-position: center;
                          }
                     }
-
-            }
-            
-            &:hover {
-            opacity:0.60;
             }
 
+            .vignette-article__nom {
+                
+                padding:15px 0 15px 15px;         
+                color:black;
+                & h3 {font-size:130%; padding:6px 0;}
+            }
+
+            .box--verte {
+                text-align:center;
+                width: 75px;
+                height: 25px;      
+                position: absolute;
+                top:10px;
+                right:20px;
+                padding: 5px;
+                border-radius:2px;
+                color: #008766;
+                background-color:#99E2D0;
+                font-size:80%;
+                
+             }
+
+    }
+
+
+    .coeur--anim--svg {
+        margin-right:28px;
+       
     }
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    $btn-mods: (
-      pink: $couleurbtn-1,
-      blue: $couleurbtn-2
-    );
-    
-    @mixin btn-mods($map) {
-      @each $mod, $val in $map {
-        &--#{$mod} {
-          background: $val;
+    .coeur--anim--path {
+        stroke-width: 1px;
+        stroke:#000;
+        fill:#fff;
+         transition-property: fill;
+        transition-duration: 400ms;
+         &:hover {
+            fill:$couleur-primaire;
+        } 
+        
         }
-      }
-    }
 
-    .btn {
-        cursor: pointer;    
-        @include btn-mods($btn-mods);
-      }
+footer {
+    padding: 30px 40px;
+    background:#353535;  
+    color:white;
 
-      .titre {
-        font-family: 'Shrikhand', sans-serif;
-      }
+    h1{@include typotitre;}
+    p{padding: 6px 0; font-size:110%;}
+    a{text-decoration: none; color:white;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     

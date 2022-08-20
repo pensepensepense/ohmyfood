@@ -1,7 +1,11 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+/*animation du logo*/
+/*couleurs du site*/
+/*génération des images de fond des restaurants vignettes articles*/
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +15,16 @@
 body {
   color: #353535;
   font-family: "Roboto", sans-serif;
+}
+
+#loading {
+  z-index: 100;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background: red;
 }
 
 @keyframes contour {
@@ -173,7 +187,9 @@ header {
   border-radius: 1.5em;
   width: 85%;
   height: 70px;
-  background: #F6F6F6;
+  background-color: #F6F6F6;
+  transition-property: background-color;
+  transition-duration: 2000ms;
 }
 #fonctionnement .etapes__numero {
   font-size: 90%;
@@ -191,6 +207,10 @@ header {
   padding: 0 15px;
   font-size: 120%;
 }
+#fonctionnement .etapes:hover {
+  background-color: #F5EDFF;
+}
+
 article {
   padding: 30px 0;
   background: #EAEAEA;
@@ -211,18 +231,32 @@ article h1 {
   text-align: left;
 }
 article a {
-  width: 100%;
-  padding: 16px;
+  text-decoration-line: none;
 }
 article .vignette-article {
   overflow: hidden;
   background-color: white;
   border-radius: 20px;
-  margin: 6px 0;
-  width: 100%;
+  margin: 12px auto;
+  width: 90%;
+  opacity: 100%;
+  transition-property: opacity;
+  transition-duration: 400ms;
+}
+article .vignette-article:hover {
+  opacity: 0.75;
+}
+article .vignette-article__corps {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 article .vignette-article__image {
   height: 200px;
+  position: relative;
 }
 article .vignette-article__image--img1 {
   background: url("./images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg") no-repeat;
@@ -244,22 +278,60 @@ article .vignette-article__image--img4 {
   background-size: cover;
   background-position: center;
 }
-article:hover {
-  opacity: 0.6;
+article .vignette-article__nom {
+  padding: 15px 0 15px 15px;
+  color: black;
+}
+article .vignette-article__nom h3 {
+  font-size: 130%;
+  padding: 6px 0;
+}
+article .box--verte {
+  text-align: center;
+  width: 75px;
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 5px;
+  border-radius: 2px;
+  color: #008766;
+  background-color: #99E2D0;
+  font-size: 80%;
 }
 
-.btn {
-  cursor: pointer;
-}
-.btn--pink {
-  background: #FFF;
-}
-.btn--blue {
-  background: #F5F;
+.coeur--anim--svg {
+  margin-right: 28px;
 }
 
-.titre {
+.coeur--anim--path {
+  stroke-width: 1px;
+  stroke: #000;
+  fill: #fff;
+  transition-property: fill;
+  transition-duration: 400ms;
+}
+.coeur--anim--path:hover {
+  fill: #9356DC;
+}
+
+footer {
+  padding: 30px 40px;
+  background: #353535;
+  color: white;
+}
+footer h1 {
   font-family: "Shrikhand", sans-serif;
+  font-size: 140%;
+  font-weight: 400;
+}
+footer p {
+  padding: 6px 0;
+  font-size: 110%;
+}
+footer a {
+  text-decoration: none;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
