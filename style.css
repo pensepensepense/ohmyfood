@@ -166,50 +166,50 @@ header {
 .logo--anim path:nth-child(1) {
   fill: #9356DC;
   stroke: #99E2D0;
-  animation: contour 3000ms ease forwards;
-  animation-delay: 421.875ms;
+  animation: contour 3500ms ease forwards;
+  animation-delay: 492.1875ms;
 }
 .logo--anim path:nth-child(2) {
   fill: #9356DC;
   stroke: #99E2D0;
-  animation: contour 3000ms ease forwards;
-  animation-delay: 843.75ms;
+  animation: contour 3500ms ease forwards;
+  animation-delay: 984.375ms;
 }
 .logo--anim path:nth-child(3) {
   fill: #9356DC;
   stroke: #99E2D0;
-  animation: contour 3000ms ease forwards;
-  animation-delay: 1265.625ms;
+  animation: contour 3500ms ease forwards;
+  animation-delay: 1476.5625ms;
 }
 .logo--anim path:nth-child(4) {
   fill: #9356DC;
   stroke: #99E2D0;
-  animation: contour 3000ms ease forwards;
-  animation-delay: 1687.5ms;
+  animation: contour 3500ms ease forwards;
+  animation-delay: 1968.75ms;
 }
 .logo--anim path:nth-child(5) {
   fill: #9356DC;
   stroke: #99E2D0;
-  animation: contour 3000ms ease forwards;
-  animation-delay: 2109.375ms;
+  animation: contour 3500ms ease forwards;
+  animation-delay: 2460.9375ms;
 }
 .logo--anim path:nth-child(6) {
   fill: #9356DC;
   stroke: #99E2D0;
-  animation: contour 3000ms ease forwards;
-  animation-delay: 2531.25ms;
+  animation: contour 3500ms ease forwards;
+  animation-delay: 2953.125ms;
 }
 .logo--anim path:nth-child(7) {
   fill: #9356DC;
   stroke: #99E2D0;
-  animation: contour 3000ms ease forwards;
-  animation-delay: 2953.125ms;
+  animation: contour 3500ms ease forwards;
+  animation-delay: 3445.3125ms;
 }
 .logo--anim path:nth-child(8) {
   fill: #9356DC;
   stroke: #99E2D0;
-  animation: contour 3000ms ease forwards;
-  animation-delay: 3375ms;
+  animation: contour 3500ms ease forwards;
+  animation-delay: 3937.5ms;
 }
 
 #localisation {

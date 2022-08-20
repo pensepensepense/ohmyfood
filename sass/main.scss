@@ -4,7 +4,7 @@
 
     /*animation du logo*/
     $num-lettre: 8;
-    $anim-dur: 3000ms;
+    $anim-dur: 3500ms;
     $anim-delay: calc($anim-dur + $anim-dur / $num-lettre);
 
     /*couleurs du site*/
@@ -100,10 +100,10 @@
  /*FIN chargement spinner*/
       
     header {display: flex;
-             align-content: center;
-             justify-content: center;
-             align-items: center;
-             flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             flex-wrap: nowrap;
             background-color :#F6F6F6; 
                       
