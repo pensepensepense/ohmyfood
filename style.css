@@ -6,44 +6,11 @@
 /*animation du logo*/
 /*couleurs du site*/
 /*génération des images de fond des restaurants vignettes articles*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  color: #353535;
-  font-family: "Roboto", sans-serif;
-}
-
-#loading {
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  position: fixed;
-  top: 0px;
-  right: 0px;
-}
-#loading img {
-  width: 100%;
-  height: 100vh;
-  animation: loading 3000ms ease forwards;
-}
-#loading .spinner {
-  position: absolute;
-  display: bloc;
-  top: 5%;
-  right: 50%;
-  color: red;
-  animation: loading 3000ms ease forwards;
-}
-
 @keyframes contour {
   0% {
-    stroke-dasharray: 1000px;
-    stroke-dashoffset: 3000px;
-    stroke-width: 2;
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 300px;
+    stroke-width: 0.5;
   }
   80% {
     stroke-dashoffset: 0px;
@@ -60,18 +27,129 @@ body {
 }
 @keyframes loading {
   0% {
-    transform: scaleX(1);
+    transform: scale(1);
     opacity: 1;
   }
   99% {
-    transform: scaleX(1);
+    transform: scale(1);
     opacity: 1;
   }
   100% {
-    transform: scaleX(0);
+    transform: scale(0);
     opacity: 0;
   }
 }
+@keyframes spinner {
+  0% {
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 3000px;
+    stroke-width: 2;
+    transform: scale(0);
+    opacity: 0;
+  }
+  5% {
+    transform: scale(1);
+    opacity: 1;
+    stroke-opacity: 0;
+  }
+  20% {
+    fill: #9356DC;
+  }
+  50% {
+    fill: #FF79DA;
+  }
+  70% {
+    fill: #99E2D0;
+  }
+  90% {
+    stroke-dashoffset: 0px;
+    transform: scale(1);
+    opacity: 1;
+    stroke-opacity: 0;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(0);
+  }
+  5% {
+    transform: rotate(0deg) scale(1);
+  }
+  99% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes shadow {
+  0% {
+    box-shadow: 5px 5px 5px #F2F2F2;
+    opacity: 1;
+  }
+  10% {
+    box-shadow: 6px 9px 6px #C2C2C2;
+  }
+  90% {
+    box-shadow: 8px 7px 5px #F2F2F2;
+  }
+  100% {
+    box-shadow: 6px 5px 5px #F2F2F2;
+    opacity: 0.75;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #353535;
+  font-family: "Roboto", sans-serif;
+}
+
+/*chargement spinner*/
+.loading {
+  text-align: center;
+  z-index: 10;
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  animation: loading 2500ms ease forwards;
+}
+
+.spinner {
+  z-index: 12;
+  position: absolute;
+  display: inline;
+  left: 50%;
+  top: 35%;
+  margin-left: -32.5px;
+  transform: scale(2);
+  animation: spinner 2500ms 250ms ease both;
+}
+
+.spin {
+  z-index: 11;
+  position: absolute;
+  display: inline;
+  top: 35%;
+  left: 50%;
+  margin-left: -60px;
+  background-color: #9356DC;
+  width: 120px;
+  height: 120px;
+  border-radius: 35%;
+  animation: spin 2500ms 250ms linear forwards;
+}
+
+/*FIN chargement spinner*/
 header {
   display: flex;
   align-content: center;
@@ -90,49 +168,49 @@ header {
   fill: #9356DC;
   stroke: #99E2D0;
   animation: contour 3000ms ease forwards;
-  animation-delay: 375ms;
+  animation-delay: 421.875ms;
 }
 .logo--anim path:nth-child(2) {
   fill: #9356DC;
   stroke: #99E2D0;
   animation: contour 3000ms ease forwards;
-  animation-delay: 750ms;
+  animation-delay: 843.75ms;
 }
 .logo--anim path:nth-child(3) {
   fill: #9356DC;
   stroke: #99E2D0;
   animation: contour 3000ms ease forwards;
-  animation-delay: 1125ms;
+  animation-delay: 1265.625ms;
 }
 .logo--anim path:nth-child(4) {
   fill: #9356DC;
   stroke: #99E2D0;
   animation: contour 3000ms ease forwards;
-  animation-delay: 1500ms;
+  animation-delay: 1687.5ms;
 }
 .logo--anim path:nth-child(5) {
   fill: #9356DC;
   stroke: #99E2D0;
   animation: contour 3000ms ease forwards;
-  animation-delay: 1875ms;
+  animation-delay: 2109.375ms;
 }
 .logo--anim path:nth-child(6) {
   fill: #9356DC;
   stroke: #99E2D0;
   animation: contour 3000ms ease forwards;
-  animation-delay: 2250ms;
+  animation-delay: 2531.25ms;
 }
 .logo--anim path:nth-child(7) {
   fill: #9356DC;
   stroke: #99E2D0;
   animation: contour 3000ms ease forwards;
-  animation-delay: 2625ms;
+  animation-delay: 2953.125ms;
 }
 .logo--anim path:nth-child(8) {
   fill: #9356DC;
   stroke: #99E2D0;
   animation: contour 3000ms ease forwards;
-  animation-delay: 3000ms;
+  animation-delay: 3375ms;
 }
 
 #localisation {
@@ -266,11 +344,9 @@ article .vignette-article {
   margin: 12px auto;
   width: 90%;
   opacity: 100%;
-  transition-property: opacity;
-  transition-duration: 400ms;
 }
 article .vignette-article:hover {
-  opacity: 0.75;
+  animation: shadow 800ms ease alternate-reverse;
 }
 article .vignette-article__corps {
   display: flex;
@@ -319,7 +395,7 @@ article .box--verte {
   position: absolute;
   top: 10px;
   right: 20px;
-  padding: 5px;
+  padding: 5px 4px 4px 4px;
   border-radius: 2px;
   color: #008766;
   background-color: #99E2D0;
@@ -334,11 +410,12 @@ article .box--verte {
   stroke-width: 1px;
   stroke: #000;
   fill: #fff;
-  transition-property: fill;
+  transition-property: fill stroke;
   transition-duration: 400ms;
 }
 .coeur--anim--path:hover {
   fill: #9356DC;
+  stroke: none;
 }
 
 footer {

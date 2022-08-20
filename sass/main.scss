@@ -6,7 +6,7 @@
     /*animation du logo*/
     $num-lettre: 8;
     $anim-dur: 3000ms;
-    $anim-delay: calc($anim-dur / $num-lettre);
+    $anim-delay: calc($anim-dur + $anim-dur / $num-lettre);
 
     /*couleurs du site*/
     $couleur-primaire: #9356DC;
@@ -20,6 +20,45 @@
     2: "./images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg",
     3: "./images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg",
     4: "./images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+
+
+        
+    @keyframes contour {
+        0% {stroke-dasharray: 100px; stroke-dashoffset: 300px;stroke-width:0.5;}
+       80% {stroke-dashoffset: 0px; fill:$couleur-secondaire;}
+       90% {stroke-opacity:0;}
+       100%{fill:#000;stroke:#000; stroke-width:0.5;}
+       }
+
+       @keyframes loading {
+        0% { transform: scale(1); opacity: 1;}
+       99% {transform: scale(1); opacity: 1;}
+       100%{ transform: scale(0); opacity: 0;}
+       }
+
+       @keyframes spinner {
+        0% {stroke-dasharray: 100px; stroke-dashoffset: 3000px;stroke-width:2; transform: scale(0); opacity: 0; }
+        5% {transform: scale(1); opacity: 1; stroke-opacity:0;}
+        20%{fill:$couleur-primaire;}
+        50% {fill:$couleur-secondaire;}
+        70% {fill:$couleur-tertiaire;}
+        90% {stroke-dashoffset: 0px;transform: scale(1); opacity: 1; stroke-opacity:0;}
+        100%{transform: scale(0); opacity: 0;}
+       }
+
+    @keyframes spin {
+        0% {transform: rotate(0deg) scale(0);}
+        5% {transform: rotate(0deg) scale(1);}
+        99% {transform: rotate(360deg);}
+        100% {transform: scale(0); opacity: 0;}
+    }
+
+    @keyframes shadow {
+        0%   {box-shadow: 5px 5px 5px #F2F2F2;opacity:1;}
+        10% {box-shadow: 6px 9px 6px #C2C2C2;}
+        90% {box-shadow: 8px 7px 5px #F2F2F2;}
+       100% {box-shadow: 6px 5px 5px #F2F2F2; opacity:0.75}
+       }
     
     * {
         margin:0;
@@ -32,34 +71,35 @@
         font-family: 'Roboto', sans-serif;
     }
 
-    #loading {
-        width:100%;
-        height:100%;
-        z-index:10;
-        position: fixed;
-        top: 0px;
-        right: 0px;
+    /*chargement spinner*/
         
-            & img {width:100%; height:100vh; animation: loading 3000ms ease forwards;}
-            .spinner{position: absolute; display:bloc; top:5%; right:50%; color: red; animation: loading 3000ms ease forwards;}
-    }
-    
-    
-    @keyframes contour {
-        0% {stroke-dasharray: 1000px; stroke-dashoffset: 3000px;stroke-width:2;}
-       80% {stroke-dashoffset: 0px; fill:$couleur-secondaire;}
-       90% {stroke-opacity:0;}
-       100%{fill:#000;stroke:#000; stroke-width:0.5;}
-       }
+   .loading {text-align:center;z-index:10; width:100%; position: fixed; height:100%; animation: loading 2500ms ease forwards;}
+   .spinner{
+    z-index:12;
+    position: absolute;
+    display:inline;
+    left:50%;
+    top:35%;
+    margin-left:-32.5px;
+    transform:scale(2);
+    animation: spinner 2500ms 250ms ease both;}
+    .spin {
+        z-index:11;
+        position: absolute;
+        display:inline;
+        top:35%;
+        left:50%;
+        margin-left:-60px;
+        
+        background-color: $couleur-primaire;
+        width: 120px;
+        height: 120px;
+        border-radius: 35%;
+       
+        animation: spin 2500ms 250ms linear forwards;}
 
-       @keyframes loading {
-        0% { transform: scaleX(1); opacity: 1;}
-       99% {transform: scaleX(1); opacity: 1;}
-       100%{ transform: scaleX(0); opacity: 0;}
-       }
-
-
-    
+ /*FIN chargement spinner*/
+      
     header {display: flex;
              align-content: center;
              justify-content: center;
@@ -80,7 +120,7 @@
                 fill:$couleur-primaire;
                 stroke:$couleur-tertiaire;
                 animation: contour $anim-dur ease forwards;
-                animation-delay: $anim-delay * $i;
+                animation-delay: $anim-delay * $i / 8;
                      }
                 }
             }
@@ -233,9 +273,9 @@
             margin: 12px auto;
             width: 90%;
             opacity:100%;
-            transition-property: opacity;
-            transition-duration: 400ms;
-            &:hover {opacity:0.75;}
+            
+            &:hover {
+                animation: shadow 800ms ease alternate-reverse;}
                         }
 
             .vignette-article__corps{
@@ -274,7 +314,7 @@
                 position: absolute;
                 top:10px;
                 right:20px;
-                padding: 5px;
+                padding: 5px 4px 4px 4px;
                 border-radius:2px;
                 color: #008766;
                 background-color:#99E2D0;
@@ -294,10 +334,11 @@
         stroke-width: 1px;
         stroke:#000;
         fill:#fff;
-         transition-property: fill;
+        transition-property: fill stroke;
         transition-duration: 400ms;
          &:hover {
             fill:$couleur-primaire;
+            stroke:none;
         } 
         
         }
