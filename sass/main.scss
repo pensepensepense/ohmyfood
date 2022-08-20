@@ -1,11 +1,164 @@
-/*les couleurs 
-primaire (violet) : #9356DC
-secondaire (rose) : #FF79DA
-tertiaire (vert) : #99E2D0
-*/
-
 * {
 	margin:0;
     padding:0;
     box-sizing:border-box;
+     }
+
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+    $couleur-primaire: #9356DC;
+    $couleur-secondaire: #FF79DA;
+    $couleur-tertiaire: #99E2D0;
+    $couleurbtn-1: #FFF;
+    $couleurbtn-2: #F5F;
+
+    $num-lettre: 8;
+    $anim-dur: 3000ms;
+    $anim-delay: calc($anim-dur / $num-lettre);
+   
+    body {
+        color: #353535;
+        font-family: 'Roboto', sans-serif;
     }
+    
+    
+    @keyframes contour {
+        0% {stroke-dasharray: 1000px; stroke-dashoffset: 3000px;stroke-width:2;}
+       80% {stroke-dashoffset: 0px; fill:$couleur-secondaire;}
+       90% {stroke-opacity:0;}
+       100%{fill:#000;stroke:#000; stroke-width:0.5;}
+       }
+    
+    header {display: flex;
+            align-content: center;
+             justify-content: center;
+             align-items: center;
+             flex-direction: column;
+            flex-wrap: nowrap;
+            background-color :#F6F6F6;             
+    }
+    
+             
+    .logo--anim {
+            transform: scale(1.1);
+            margin:30px 0 20px 0;
+           
+            @for $i from 1 through $num-lettre {
+            & path:nth-child(#{$i}) {
+                fill:$couleur-primaire;
+                stroke:$couleur-tertiaire;
+                animation: contour $anim-dur ease forwards;
+                animation-delay: $anim-delay * $i;
+                     }
+                }
+            }
+
+    #localisation {
+        font-size:1.2em;
+        display:flex;
+        align-content: center;
+        flex-direction: row;
+        justify-content: center;
+         align-items: center;
+        width:100%;
+        height: 60px;
+        border-top: solid 1px rgb(172, 172, 172);
+       background:linear-gradient(to bottom, rgb(100, 100, 100), 1px, #EAEAEA );
+        }
+
+        @mixin titreh1 {
+            color:black;
+            font-size:180%;
+            font-weight: 900;
+            line-height: 1.2em;
+        }
+
+    #presentation {
+        padding:6%;
+        text-align:center;
+
+         h1{
+        @include titreh1;
+                    }
+        h2{
+            font-size:120%;
+            font-weight: 500;
+                }
+
+        @mixin typobtn {
+            font-size: 1.2rem;
+                font-weight: 600;
+                cursor: pointer;
+                padding: 5%;
+                border-radius: 10rem;
+                margin: 12px auto;
+        }
+
+        .btn{
+            @include typobtn;
+            width:250px;
+            background:linear-gradient(to bottom,  $couleur-secondaire,  $couleur-primaire);
+            color: white;
+            transform: scale(1);
+            transition-property: transform;
+            transition-duration: 400ms;
+                &:hover {
+                    transform: scale(1.15);
+                }
+            }
+        
+    }
+
+    #fonctionnement {
+        h1{
+            @include titreh1;
+            padding-left: 20px;
+            text-align:left;
+        }
+        .etapes {
+            @include typobtn;
+            width:80%;
+            background:#F6F6F6;
+                         
+        }
+    }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $btn-mods: (
+      pink: $couleurbtn-1,
+      blue: $couleurbtn-2
+    );
+    
+    @mixin btn-mods($map) {
+      @each $mod, $val in $map {
+        &--#{$mod} {
+          background: $val;
+        }
+      }
+    }
+
+    .btn {
+        cursor: pointer;    
+        @include btn-mods($btn-mods);
+      }
+
+      .titre {
+        font-family: 'Shrikhand', sans-serif;
+      }
