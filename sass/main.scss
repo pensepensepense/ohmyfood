@@ -1,5 +1,4 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
@@ -334,7 +333,7 @@
         stroke-width: 1px;
         stroke:#000;
         fill:#fff;
-        transition-property: fill stroke;
+        transition-property: fill, stroke;
         transition-duration: 400ms;
          &:hover {
             fill:$couleur-primaire;
