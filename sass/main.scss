@@ -25,6 +25,12 @@
 
     $num-plat: 10;
 
+    $breakpoints: (
+        tablet: 768px,
+        desktop: 1100px,
+        large: 1600px,
+    );
+
         
     @keyframes contour {
         0% {stroke-dasharray: 100px; stroke-dashoffset: 300px;stroke-width:0.5;}
@@ -33,13 +39,13 @@
        100%{fill:#000;stroke:#000; stroke-width:0.5;}
        }
 
-       @keyframes loading {
+    @keyframes loading {
         0% { transform: scale(1); opacity: 1;}
        99% {transform: scale(1); opacity: 1;}
        100%{ transform: scale(0); opacity: 0;}
        }
 
-       @keyframes spinner {
+    @keyframes spinner {
         0% {stroke-dasharray: 100px; stroke-dashoffset: 3000px;stroke-width:2; transform: scale(0); opacity: 0; }
         5% {transform: scale(1); opacity: 1; stroke-opacity:0;}
         20%{fill:$couleur-primaire;}
@@ -67,6 +73,67 @@
         0% {opacity:0; transform: translateY(50px);}
        100%{opacity:1; transform: translateY(0);}
        }
+
+    @mixin titreh1 {
+        color:black;
+        font-size:180%;
+        font-weight: 900;
+        line-height: 1.2em;
+    }
+
+    
+    @mixin typobtn {
+        font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 18px 10px;
+            margin: 12px auto;
+    }
+
+    @mixin typotitre {
+    font-family: 'Shrikhand', sans-serif; font-size:140%; font-weight: 400;
+    }
+
+    @mixin bouton {
+        cursor: pointer;
+        border-radius: 10rem;
+        width:250px;
+        background:linear-gradient(to bottom,  $couleur-secondaire,  $couleur-primaire);
+        color: white;
+        transform: scale(1);
+        box-shadow: 4px 4px 6px #aaa;
+        opacity:1;
+        transition: transform, box-shadow, background;
+        transition-duration: 400ms;
+            &:hover {
+                transform: scale(1.15);
+                box-shadow: 6px 6px 8px rgb(116, 116, 116);
+                background:linear-gradient(to bottom,  $light-couleur-secondaire,  $light-couleur-primaire);
+            
+            }
+        }
+
+    @mixin tablet {
+            @media screen and (min-width:map-get($breakpoints, tablet)){
+              @content;
+            }
+          }
+    @mixin desktop {
+            @media screen and (min-width:map-get($breakpoints, desktop)){
+              @content;
+            }
+          }
+    @mixin large {
+            @media screen and (min-width:map-get($breakpoints, large)){
+              @content;
+            }
+          }
+          
+    @mixin medium-screen {
+            @media screen and (min-width: map-get($breakpoints, medium)) {
+              @content;
+            }
+          }
     
     * {
         margin:0;
@@ -160,49 +227,15 @@
        background:linear-gradient(to bottom, rgb(100, 100, 100), 1px, $fondgris);
         }
 
-        @mixin titreh1 {
-            color:black;
-            font-size:180%;
-            font-weight: 900;
-            line-height: 1.2em;
-        }
 
-        
-        @mixin typobtn {
-            font-size: 1.2rem;
-                font-weight: 600;
-                cursor: pointer;
-                padding: 5%;
-                margin: 12px auto;
-        }
-
-        @mixin typotitre {
-        font-family: 'Shrikhand', sans-serif; font-size:140%; font-weight: 400;
-        }
-
-        @mixin bouton {
-            cursor: pointer;
-            border-radius: 10rem;
-            width:250px;
-            background:linear-gradient(to bottom,  $couleur-secondaire,  $couleur-primaire);
-            color: white;
-            transform: scale(1);
-            box-shadow: 4px 4px 6px #aaa;
-            opacity:1;
-            transition: transform, box-shadow, background;
-            transition-duration: 400ms;
-                &:hover {
-                    transform: scale(1.15);
-                    box-shadow: 6px 6px 8px rgb(116, 116, 116);
-                    background:linear-gradient(to bottom,  $light-couleur-secondaire,  $light-couleur-primaire);
-                
-                }
-            }
-
+              
 
     #presentation {
         padding:6%;
         text-align:center;
+        @include desktop {
+            padding: 2%;
+        }
 
          h1{
         @include titreh1;
@@ -227,11 +260,18 @@
          align-content: center;
         justify-content: space-around;
          align-items: flex-start;
+         @include desktop {
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+         }
 
         h1{
             @include titreh1;
             padding-left: 20px;
             text-align:left;
+            @include tablet {
+                padding-left: 50px;}
         }
         .etapes {
             display:flex;
@@ -247,7 +287,11 @@
             background-color:#F6F6F6;
             transition-property: background-color;
             transition-duration: 2000ms;
-       
+            @include tablet {
+                width: 28%;} 
+            @include desktop {
+                width:20%;
+            }    
         
                     &__numero {
                         font-size:90%;
@@ -284,11 +328,19 @@
         justify-content: center;
          align-items: flex-start;
          width:100%;
+         @include tablet {
+            flex-direction: row;
+            flex-wrap: wrap;}
 
          h1{
             @include titreh1;
             padding-left: 20px;
             text-align:left;
+            @include tablet {
+                align-self: flex-start;
+                width:100%;
+                padding-left:50px;
+            }
         }
 
         a{
@@ -302,6 +354,8 @@
             margin: 12px auto;
             width: 90%;
             opacity:100%;
+            @include tablet {width:40%;}
+            @include desktop {width:20%;}
             
             &:hover {
                 animation: shadow 800ms ease alternate-reverse;}
@@ -379,6 +433,9 @@ footer {
     h1{@include typotitre;}
     p{padding: 6px 0; font-size:110%;}
     a{text-decoration: none; color:white;}
+    @include tablet {
+        text-align: center;}
+    
 }
 
 .deco {
@@ -416,13 +473,30 @@ footer {
             flex-wrap: nowrap;
             justify-content: space-between;
             align-content: center;
-            align-items: center;}
+            align-items: center;
+            @include tablet {
+            justify-content: space-evenly;}
+        }
 
         & h1{@include typotitre; color: black; font-size:180%; padding-left:10px;}
 
-        &__plato {margin-top:30px; padding-left:10px; font-size:110%;}
+        &__plato {  margin-top:30px;
+                    padding-left:10px;
+                    font-size:110%;
+                    @include tablet {
+                        margin: 30px auto 6px auto;} 
+        
+        }
 
-        & hr {background:$couleur-tertiaire; height: 3px; width:45px; border:none; margin: 4px 10px;}
+        & hr {  background:$couleur-tertiaire;
+                height: 3px;
+                width:45px;
+                border:none;
+                margin: 4px 10px;
+                @include tablet {
+                    margin: 2px auto 16px auto; }
+
+                }
 
         & .btn{
             @include typobtn;
@@ -444,6 +518,13 @@ footer {
             width: 100%;
             transition: padding-right 400ms ease-in-out;
             opacity:0;
+            overflow: hidden;
+            @include tablet {
+                width: 48%;}
+            @include desktop {
+                width: 28%;} 
+            @include large {
+                width: 20%;} 
 
                         
             &:hover {
@@ -480,6 +561,7 @@ footer {
                 background-color: $couleur-tertiaire;
                 font-size:150%;
                 width: 60px;
+                border-radius:0px 15px 15px 0;
                 height: 70px;
                 position: absolute;
                 padding: 20px;

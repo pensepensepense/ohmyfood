@@ -254,6 +254,11 @@ nav i {
   padding: 6%;
   text-align: center;
 }
+@media screen and (min-width: 1100px) {
+  #presentation {
+    padding: 2%;
+  }
+}
 #presentation h1 {
   color: black;
   font-size: 180%;
@@ -268,7 +273,7 @@ nav i {
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 5%;
+  padding: 18px 10px;
   margin: 12px auto;
   cursor: pointer;
   border-radius: 10rem;
@@ -296,6 +301,13 @@ nav i {
   justify-content: space-around;
   align-items: flex-start;
 }
+@media screen and (min-width: 1100px) {
+  #fonctionnement {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+}
 #fonctionnement h1 {
   color: black;
   font-size: 180%;
@@ -303,6 +315,11 @@ nav i {
   line-height: 1.2em;
   padding-left: 20px;
   text-align: left;
+}
+@media screen and (min-width: 768px) {
+  #fonctionnement h1 {
+    padding-left: 50px;
+  }
 }
 #fonctionnement .etapes {
   display: flex;
@@ -314,7 +331,7 @@ nav i {
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 5%;
+  padding: 18px 10px;
   margin: 12px auto;
   border-radius: 1.5em;
   width: 85%;
@@ -322,6 +339,16 @@ nav i {
   background-color: #F6F6F6;
   transition-property: background-color;
   transition-duration: 2000ms;
+}
+@media screen and (min-width: 768px) {
+  #fonctionnement .etapes {
+    width: 28%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  #fonctionnement .etapes {
+    width: 20%;
+  }
 }
 #fonctionnement .etapes__numero {
   font-size: 90%;
@@ -354,6 +381,12 @@ article {
   align-items: flex-start;
   width: 100%;
 }
+@media screen and (min-width: 768px) {
+  article {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
 article h1 {
   color: black;
   font-size: 180%;
@@ -361,6 +394,13 @@ article h1 {
   line-height: 1.2em;
   padding-left: 20px;
   text-align: left;
+}
+@media screen and (min-width: 768px) {
+  article h1 {
+    align-self: flex-start;
+    width: 100%;
+    padding-left: 50px;
+  }
 }
 article a {
   text-decoration-line: none;
@@ -372,6 +412,16 @@ article .vignette-article {
   margin: 12px auto;
   width: 90%;
   opacity: 100%;
+}
+@media screen and (min-width: 768px) {
+  article .vignette-article {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  article .vignette-article {
+    width: 20%;
+  }
 }
 article .vignette-article:hover {
   animation: shadow 800ms ease alternate-reverse;
@@ -464,6 +514,11 @@ footer a {
   text-decoration: none;
   color: white;
 }
+@media screen and (min-width: 768px) {
+  footer {
+    text-align: center;
+  }
+}
 
 .deco {
   height: 260px;
@@ -514,6 +569,11 @@ footer a {
   align-content: center;
   align-items: center;
 }
+@media screen and (min-width: 768px) {
+  .menu__titre {
+    justify-content: space-evenly;
+  }
+}
 .menu h1 {
   font-family: "Shrikhand", sans-serif;
   font-size: 140%;
@@ -527,6 +587,11 @@ footer a {
   padding-left: 10px;
   font-size: 110%;
 }
+@media screen and (min-width: 768px) {
+  .menu__plato {
+    margin: 30px auto 6px auto;
+  }
+}
 .menu hr {
   background: #99E2D0;
   height: 3px;
@@ -534,11 +599,16 @@ footer a {
   border: none;
   margin: 4px 10px;
 }
+@media screen and (min-width: 768px) {
+  .menu hr {
+    margin: 2px auto 16px auto;
+  }
+}
 .menu .btn {
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 5%;
+  padding: 18px 10px;
   margin: 12px auto;
   cursor: pointer;
   border-radius: 10rem;
@@ -569,6 +639,22 @@ footer a {
   width: 100%;
   transition: padding-right 400ms ease-in-out;
   opacity: 0;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .menu__plats {
+    width: 48%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .menu__plats {
+    width: 28%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .menu__plats {
+    width: 20%;
+  }
 }
 .menu__plats:hover {
   padding-right: 80px;
@@ -603,6 +689,7 @@ footer a {
   background-color: #99E2D0;
   font-size: 150%;
   width: 60px;
+  border-radius: 0px 15px 15px 0;
   height: 70px;
   position: absolute;
   padding: 20px;
