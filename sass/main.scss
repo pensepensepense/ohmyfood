@@ -407,6 +407,7 @@ footer {
         position:relative;
         width: 100%;
         padding:10px;
+        overflow:hidden;
 
         &__titre {
             display: flex;
@@ -457,7 +458,10 @@ footer {
             }
 
             &--intitule {                                     
-                & h3 {color: black;}
+                & h3 {color: black;
+                    overflow:hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;}
             }
 
             &--description {
