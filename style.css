@@ -517,54 +517,77 @@ footer a {
   border: none;
   margin: 4px 10px;
 }
+@keyframes validation {
+  0% {
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 300px;
+    stroke-width: 0.5;
+  }
+  80% {
+    stroke-dashoffset: 0px;
+    fill: #FF79DA;
+  }
+  90% {
+    stroke-opacity: 0;
+  }
+  100% {
+    fill: #000;
+    stroke: #000;
+    stroke-width: 0.5;
+  }
+}
 .menu__plats {
-  display: flex;
-  overflow: hidden;
+  height: 70px;
+  position: relative;
   background-color: white;
-  min-height: 70px;
+  box-shadow: 4px 4px 6px #aaa;
   border-radius: 15px;
+  padding: 14px;
   margin: 8px auto;
   width: 100%;
+  transition: padding-right 400ms ease-in-out;
 }
-.menu__plats--intitule {
-  width: 5000px;
-  text-overflow: ellipsis;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: center;
-  flex-wrap: nowrap;
-  padding-left: 10px;
+.menu__plats:hover {
+  padding-right: 80px;
+}
+.menu__plats:hover .menu__plats--valide {
+  opacity: 1;
+  transform: translate(-60px);
+}
+.menu__plats:hover .fa-circle-check {
+  transform: rotate(360deg);
 }
 .menu__plats--intitule h3 {
   color: black;
-  margin: 4px 0;
 }
-.menu__plats--tarif {
+.menu__plats--description {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: center;
-  padding-bottom: 5px;
-  font-size: 120%;
-  font-weight: 600;
-  margin-right: 20px;
+  justify-content: space-between;
+  font-size: 110%;
+}
+.menu__plats--description p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .menu__plats--valide {
-  font-size: 140%;
-  padding: 0 40px;
-  color: white;
-  background-color: #99E2D0;
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
   justify-content: center;
-  transform: scale(0);
+  align-items: center;
+  background-color: #99E2D0;
+  font-size: 150%;
+  width: 60px;
+  height: 70px;
+  position: absolute;
+  padding: 20px;
+  right: -60px;
+  top: 0;
+  opacity: 0;
+  transition: transform 330ms ease-in-out;
+}
+.menu__plats--valide i {
+  color: #fff;
+  transition: transform 500ms ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */
