@@ -84,7 +84,7 @@
    .loading {text-align:center;z-index:10; width:100%; position: fixed; height:100%; animation: loading 2500ms ease forwards;}
    .spinner{
     z-index:12;
-    position: absolute;
+    position: fixed;
     display:inline;
     left:50%;
     top:35%;
@@ -93,7 +93,7 @@
     animation: spinner 2500ms 250ms ease both;}
     .spin {
         z-index:11;
-        position: absolute;
+        position: fixed;
         display:inline;
         top:35%;
         left:50%;

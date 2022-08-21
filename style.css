@@ -135,7 +135,7 @@ body {
 
 .spinner {
   z-index: 12;
-  position: absolute;
+  position: fixed;
   display: inline;
   left: 50%;
   top: 35%;
@@ -146,7 +146,7 @@ body {
 
 .spin {
   z-index: 11;
-  position: absolute;
+  position: fixed;
   display: inline;
   top: 35%;
   left: 50%;
@@ -503,6 +503,7 @@ footer a {
   position: relative;
   width: 100%;
   padding: 10px;
+  overflow: hidden;
 }
 .menu__titre {
   display: flex;
@@ -581,6 +582,9 @@ footer a {
 }
 .menu__plats--intitule h3 {
   color: black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .menu__plats--description {
   display: flex;
