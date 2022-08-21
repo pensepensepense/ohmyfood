@@ -8,7 +8,7 @@
     stroke:#000;
     fill:transparent;
     transition-property: fill, stroke;
-    transition-duration: 400ms;
+    transition-duration: 3000ms;
      &:hover {
         fill:$couleur-primaire;
         stroke:none;
