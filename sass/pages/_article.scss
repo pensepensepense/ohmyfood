@@ -10,7 +10,8 @@ article {
      width:100%;
      @include tablet {
         flex-direction: row;
-        flex-wrap: wrap;}
+        flex-wrap: wrap;
+        align-items: stretch;}
 
      h1{
         @include titreh1;
@@ -38,7 +39,7 @@ article {
         @include desktop {width:20%;}
         
         &:hover {
-            animation: shadow 800ms ease alternate-reverse;}
+            animation: shadow 1800ms ease both;}
                     }
 
         .vignette-article__corps{
