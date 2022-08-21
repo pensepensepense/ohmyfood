@@ -1,0 +1,62 @@
+@mixin titreh1 {
+    color:black;
+    font-size:180%;
+    font-weight: 900;
+    line-height: 1.2em;
+}
+
+
+@mixin typobtn {
+    font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 18px 10px;
+        margin: 12px auto;
+}
+
+@mixin typotitre {
+font-family: 'Shrikhand', sans-serif; font-size:140%; font-weight: 400;
+}
+
+@mixin bouton {
+    cursor: pointer;
+    border-radius: 10rem;
+    width:250px;
+    background:linear-gradient(to bottom,  $couleur-secondaire,  $couleur-primaire);
+    color: white;
+    transform: scale(1);
+    box-shadow: 4px 4px 6px #aaa;
+    opacity:1;
+    transition: transform, box-shadow, background;
+    transition-duration: 400ms;
+        &:hover {
+            transform: scale(1.15);
+            box-shadow: 6px 6px 8px rgb(116, 116, 116);
+            background:linear-gradient(to bottom,  $light-couleur-secondaire,  $light-couleur-primaire);
+        
+        }
+    }
+
+@mixin tablet {
+        @media screen and (min-width:map-get($breakpoints, tablet)){
+          @content;
+        }
+      }
+@mixin desktop {
+        @media screen and (min-width:map-get($breakpoints, desktop)){
+          @content;
+        }
+      }
+@mixin large {
+        @media screen and (min-width:map-get($breakpoints, large)){
+          @content;
+        }
+      }
+      
+@mixin medium-screen {
+        @media screen and (min-width: map-get($breakpoints, medium)) {
+          @content;
+        }
+      }
+
+

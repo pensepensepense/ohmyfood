@@ -1,0 +1,21 @@
+#presentation {
+    padding:6%;
+    text-align:center;
+    @include desktop {
+        padding: 2%;
+    }
+
+     h1{
+    @include titreh1;
+                }
+    h2{
+        font-size:120%;
+        font-weight: 500;
+            }
+
+
+    .btn{
+        @include typobtn;
+        @include bouton;
+    }   
+}

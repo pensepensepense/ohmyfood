@@ -1,0 +1,17 @@
+.coeur--anim--svg {
+    margin-right:28px;
+   
+}
+    
+.coeur--anim--path {
+    stroke-width: 1px;
+    stroke:#000;
+    fill:transparent;
+    transition-property: fill, stroke;
+    transition-duration: 400ms;
+     &:hover {
+        fill:$couleur-primaire;
+        stroke:none;
+    } 
+    
+    }

@@ -4,8 +4,8 @@
   "description": "projetOC",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./style.css",
-    "prefix": "postcss ./style.css --use autoprefixer -d ./css_prefixed/"
+    "sass": "sass --watch ./sass/main.scss:./public/style.css --style compressed",
+    "prefix": "postcss ./public/style.css --use autoprefixer -d ./css_prefixed/"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,41 @@
+@keyframes contour {
+    0% {stroke-dasharray: 100px; stroke-dashoffset: 300px;stroke-width:0.5;}
+   80% {stroke-dashoffset: 0px; fill:$couleur-secondaire;}
+   90% {stroke-opacity:0;}
+   100%{fill:#000;stroke:#000; stroke-width:0.5;}
+   }
+
+@keyframes loading {
+    0% { transform: scale(1); opacity: 1;}
+   99% {transform: scale(1); opacity: 1;}
+   100%{ transform: scale(0); opacity: 0;}
+   }
+
+@keyframes spinner {
+    0% {stroke-dasharray: 100px; stroke-dashoffset: 3000px;stroke-width:2; transform: scale(0); opacity: 0; }
+    5% {transform: scale(1); opacity: 1; stroke-opacity:0;}
+    20%{fill:$couleur-primaire;}
+    50% {fill:$couleur-secondaire;}
+    70% {fill:$couleur-tertiaire;}
+    90% {stroke-dashoffset: 0px;transform: scale(1); opacity: 1; stroke-opacity:0;}
+    100%{transform: scale(0); opacity: 0;}
+   }
+
+@keyframes spin {
+    0% {transform: rotate(0deg) scale(0);}
+    5% {transform: rotate(0deg) scale(1);}
+    99% {transform: rotate(360deg);}
+    100% {transform: scale(0); opacity: 0;}
+}
+
+@keyframes shadow {
+    0%   {box-shadow: 5px 5px 5px #F2F2F2;opacity:1;}
+    10% {box-shadow: 6px 9px 6px #C2C2C2;}
+    90% {box-shadow: 8px 7px 5px #F2F2F2;}
+   100% {box-shadow: 6px 5px 5px #F2F2F2; opacity:0.75}
+   }
+
+@keyframes deploiement {
+    0% {opacity:0; transform: translateY(50px);}
+   100%{opacity:1; transform: translateY(0);}
+   }

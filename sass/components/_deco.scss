@@ -1,0 +1,15 @@
+
+/*changement auto fond image page resto*/
+
+.deco {
+            
+    height: 260px;
+    width:100%;
+    @for $i from 1 through $num-resto {
+        &--resto#{$i} {
+            background: url(map-get($input-url, $i)) no-repeat;
+            background-size: cover;
+            background-position: center;
+                 }
+            }
+    }

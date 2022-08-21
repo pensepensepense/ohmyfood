@@ -1,0 +1,28 @@
+    /*animation du logo*/
+    $num-lettre: 8;
+    $anim-dur: 3500ms;
+    $anim-delay: calc($anim-dur + $anim-dur / $num-lettre);
+
+    /*couleurs du site*/
+    $couleur-primaire: #9356DC;
+    $couleur-secondaire: #FF79DA;
+    $couleur-tertiaire: #99E2D0;
+    $light-couleur-primaire:lighten($couleur-primaire,10%);
+    $light-couleur-secondaire:lighten($couleur-secondaire,10%);
+    $light-couleur-tertiaire:lighten($couleur-tertiaire,10%);
+    $fondgris: #EAEAEA;
+
+    /*pour images fond des pages resto avec map$input-url et class deco*/
+    $num-resto: 4;
+
+    /*génération des images de fond des restaurants vignettes articles avec class deco et $num-resto*/
+    $input-url: (
+    1:"../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg",
+    2: "../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg",
+    3: "../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg",
+    4: "../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+
+    /*pour effet arrivée des plats*/
+    $num-plat: 10;
+    
+

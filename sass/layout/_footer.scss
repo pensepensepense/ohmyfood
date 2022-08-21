@@ -1,0 +1,11 @@
+footer {
+    padding: 30px 40px;
+    background:#353535;  
+    color:white;
+    h1{@include typotitre;}
+    p{padding: 6px 0; font-size:110%;}
+    a{text-decoration: none; color:white;}
+    @include tablet {
+        text-align: center;}
+    
+}
