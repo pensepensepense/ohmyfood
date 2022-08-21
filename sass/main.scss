@@ -108,6 +108,19 @@
             background-color :#F6F6F6; 
                       
     }
+
+    nav {display: flex;
+        width:100%;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    
+        & i{font-size:2em;
+        color:black;
+                    }
+                }
     
              
     .logo--anim {
@@ -119,7 +132,7 @@
                 fill:$couleur-primaire;
                 stroke:$couleur-tertiaire;
                 animation: contour $anim-dur ease forwards;
-                animation-delay: $anim-delay * $i / 8;
+                animation-delay: calc($anim-delay * 2 * $i / 8);
                      }
                 }
             }
@@ -332,7 +345,7 @@
     .coeur--anim--path {
         stroke-width: 1px;
         stroke:#000;
-        fill:#fff;
+        fill:transparent;
         transition-property: fill, stroke;
         transition-duration: 400ms;
          &:hover {
@@ -346,12 +359,103 @@ footer {
     padding: 30px 40px;
     background:#353535;  
     color:white;
-
     h1{@include typotitre;}
     p{padding: 6px 0; font-size:110%;}
     a{text-decoration: none; color:white;}
 }
 
+.deco {
+            
+    height: 260px;
+    width:100%;
+    @for $i from 1 through $num-resto {
+        &--resto#{$i} {
+            background: url(map-get($input-url, $i)) no-repeat;
+            background-size: cover;
+            background-position: center;
+                 }
+            }
+    }
+
+    .menu {
+        display:flex;
+        flex-direction: column;
+        align-content: flex-start;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        background:$fondgris;
+        margin-top: -30px;
+        border-radius: 25px 25px 0px 0px;
+        position:relative;
+        width: 100%;
+        padding:10px;
+
+        &__titre {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-content: center;
+            align-items: center;}
+
+        & h1{@include typotitre; color: black; font-size:180%; padding-left:10px;}
+
+        &__plato {margin-top:10px; padding-left:10px;}
+
+        & hr {background:$couleur-tertiaire; height: 3px; width:45px; border:none; margin: 4px 10px;}
+
+        &__plats {
+            display:flex;
+            overflow:hidden;
+            background-color:white;
+            min-height:70px;
+            border-radius: 15px;
+            margin: 8px auto;
+            width: 100%;
+
+            &--intitule {
+                width:5000px;
+                text-overflow: ellipsis;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                align-content: center;
+                flex-wrap: nowrap;
+                padding-left: 10px;
+                & h3 {color: black; margin:4px 0;}
+            }
+
+            &--tarif {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-content: center;
+                padding-bottom:5px;
+                font-size:120%;
+                font-weight:600;
+                margin-right:20px;
+            }
+
+            &--valide {
+                font-size:140%;
+                padding:0 40px;
+                color: white;
+                background-color:$couleur-tertiaire;
+                display:flex;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-content: center;
+                justify-content: center;
+                transform:scale(0);
+            }
+            }
+    }
 
 
 
