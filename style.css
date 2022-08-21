@@ -102,6 +102,16 @@
     opacity: 0.75;
   }
 }
+@keyframes deploiement {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -260,16 +270,21 @@ nav i {
   cursor: pointer;
   padding: 5%;
   margin: 12px auto;
+  cursor: pointer;
   border-radius: 10rem;
   width: 250px;
   background: linear-gradient(to bottom, #FF79DA, #9356DC);
   color: white;
   transform: scale(1);
-  transition-property: transform;
+  box-shadow: 4px 4px 6px #aaa;
+  opacity: 1;
+  transition: transform, box-shadow, background;
   transition-duration: 400ms;
 }
 #presentation .btn:hover {
   transform: scale(1.15);
+  box-shadow: 6px 6px 8px rgb(116, 116, 116);
+  background: linear-gradient(to bottom, #fface8, #ae80e5);
 }
 
 #fonctionnement {
@@ -507,8 +522,9 @@ footer a {
   padding-left: 10px;
 }
 .menu__plato {
-  margin-top: 10px;
+  margin-top: 30px;
   padding-left: 10px;
+  font-size: 110%;
 }
 .menu hr {
   background: #99E2D0;
@@ -517,24 +533,29 @@ footer a {
   border: none;
   margin: 4px 10px;
 }
-@keyframes validation {
-  0% {
-    stroke-dasharray: 100px;
-    stroke-dashoffset: 300px;
-    stroke-width: 0.5;
-  }
-  80% {
-    stroke-dashoffset: 0px;
-    fill: #FF79DA;
-  }
-  90% {
-    stroke-opacity: 0;
-  }
-  100% {
-    fill: #000;
-    stroke: #000;
-    stroke-width: 0.5;
-  }
+.menu .btn {
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5%;
+  margin: 12px auto;
+  cursor: pointer;
+  border-radius: 10rem;
+  width: 250px;
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  color: white;
+  transform: scale(1);
+  box-shadow: 4px 4px 6px #aaa;
+  opacity: 1;
+  transition: transform, box-shadow, background;
+  transition-duration: 400ms;
+  text-align: center;
+  margin: 30px auto;
+}
+.menu .btn:hover {
+  transform: scale(1.15);
+  box-shadow: 6px 6px 8px rgb(116, 116, 116);
+  background: linear-gradient(to bottom, #fface8, #ae80e5);
 }
 .menu__plats {
   height: 70px;
@@ -546,6 +567,7 @@ footer a {
   margin: 8px auto;
   width: 100%;
   transition: padding-right 400ms ease-in-out;
+  opacity: 0;
 }
 .menu__plats:hover {
   padding-right: 80px;
@@ -588,6 +610,46 @@ footer a {
 .menu__plats--valide i {
   color: #fff;
   transition: transform 500ms ease-in-out;
+}
+.menu__plats--numero1 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 393.75ms;
+}
+.menu__plats--numero2 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 787.5ms;
+}
+.menu__plats--numero3 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 1181.25ms;
+}
+.menu__plats--numero4 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 1575ms;
+}
+.menu__plats--numero5 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 1968.75ms;
+}
+.menu__plats--numero6 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 2362.5ms;
+}
+.menu__plats--numero7 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 2756.25ms;
+}
+.menu__plats--numero8 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 3150ms;
+}
+.menu__plats--numero9 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 3543.75ms;
+}
+.menu__plats--numero10 {
+  animation: deploiement 3000ms ease forwards;
+  animation-delay: 3937.5ms;
 }
 
 /*# sourceMappingURL=style.css.map */

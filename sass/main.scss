@@ -11,6 +11,9 @@
     $couleur-primaire: #9356DC;
     $couleur-secondaire: #FF79DA;
     $couleur-tertiaire: #99E2D0;
+    $light-couleur-primaire:lighten($couleur-primaire,10%);
+    $light-couleur-secondaire:lighten($couleur-secondaire,10%);
+    $light-couleur-tertiaire:lighten($couleur-tertiaire,10%);
     $fondgris: #EAEAEA;
 
     /*génération des images de fond des restaurants vignettes articles*/
@@ -20,6 +23,7 @@
     3: "./images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg",
     4: "./images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
 
+    $num-plat: 10;
 
         
     @keyframes contour {
@@ -57,6 +61,11 @@
         10% {box-shadow: 6px 9px 6px #C2C2C2;}
         90% {box-shadow: 8px 7px 5px #F2F2F2;}
        100% {box-shadow: 6px 5px 5px #F2F2F2; opacity:0.75}
+       }
+
+    @keyframes deploiement {
+        0% {opacity:0; transform: translateY(50px);}
+       100%{opacity:1; transform: translateY(0);}
        }
     
     * {
@@ -164,13 +173,31 @@
                 font-weight: 600;
                 cursor: pointer;
                 padding: 5%;
-
                 margin: 12px auto;
         }
 
         @mixin typotitre {
         font-family: 'Shrikhand', sans-serif; font-size:140%; font-weight: 400;
         }
+
+        @mixin bouton {
+            cursor: pointer;
+            border-radius: 10rem;
+            width:250px;
+            background:linear-gradient(to bottom,  $couleur-secondaire,  $couleur-primaire);
+            color: white;
+            transform: scale(1);
+            box-shadow: 4px 4px 6px #aaa;
+            opacity:1;
+            transition: transform, box-shadow, background;
+            transition-duration: 400ms;
+                &:hover {
+                    transform: scale(1.15);
+                    box-shadow: 6px 6px 8px rgb(116, 116, 116);
+                    background:linear-gradient(to bottom,  $light-couleur-secondaire,  $light-couleur-primaire);
+                
+                }
+            }
 
 
     #presentation {
@@ -188,18 +215,8 @@
 
         .btn{
             @include typobtn;
-            border-radius: 10rem;
-            width:250px;
-            background:linear-gradient(to bottom,  $couleur-secondaire,  $couleur-primaire);
-            color: white;
-            transform: scale(1);
-            transition-property: transform;
-            transition-duration: 400ms;
-                &:hover {
-                    transform: scale(1.15);
-                }
-            }
-        
+            @include bouton;
+        }   
     }
 
     #fonctionnement {
@@ -402,18 +419,18 @@ footer {
 
         & h1{@include typotitre; color: black; font-size:180%; padding-left:10px;}
 
-        &__plato {margin-top:10px; padding-left:10px;}
+        &__plato {margin-top:30px; padding-left:10px; font-size:110%;}
 
         & hr {background:$couleur-tertiaire; height: 3px; width:45px; border:none; margin: 4px 10px;}
 
-    
+        & .btn{
+            @include typobtn;
+            @include bouton;
+            text-align:center;
+            margin: 30px auto;
+        } 
 
-        @keyframes validation {
-            0% {stroke-dasharray: 100px; stroke-dashoffset: 300px;stroke-width:0.5;}
-           80% {stroke-dashoffset: 0px; fill:$couleur-secondaire;}
-           90% {stroke-opacity:0;}
-           100%{fill:#000;stroke:#000; stroke-width:0.5;}
-           }
+
 
         &__plats {
             height:70px;
@@ -425,6 +442,9 @@ footer {
             margin: 8px auto;
             width: 100%;
             transition: padding-right 400ms ease-in-out;
+            opacity:0;
+
+                        
             &:hover {
               padding-right: 80px;
             }
@@ -468,7 +488,16 @@ footer {
                     transition: transform 500ms ease-in-out;
                      }
             }
-    }
+
+            @for $i from 1 through $num-plat {
+                &--numero#{$i} {
+                    animation: deploiement 3000ms ease forwards;
+                    animation-delay: calc($anim-delay * $i / $num-plat);
+                         }
+                    }
+                
+           
+        }
 
     }
 
